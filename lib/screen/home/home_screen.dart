@@ -77,8 +77,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     );
+
                   }
               ),
+            ListTile(
+              onTap: (){
+                Provider.of<MyAuthProvider>(context,listen: false).authLogOut();
+              },
+              title: Text('Log Out',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue
+                ),
+              ),
+              leading: Icon(Icons.login_outlined,color: Colors.blueAccent,),
+            )
 
           ]
       ),

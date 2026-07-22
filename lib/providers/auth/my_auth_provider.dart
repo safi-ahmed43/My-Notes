@@ -74,6 +74,10 @@ class MyAuthProvider with ChangeNotifier{
   void authForgotPassword(String email) async {
     _loading(true);
     try{
+      await auth.sendPasswordResetEmail(email: email.trim());
+      showMessage('Password reset please check your email');
+
+      Navigator.pushReplacementNamed(navigatorKeys.currentContext!, RouteHelper.loginScreen);
 
     }on FirebaseAuthException catch(e){
       showMessage(e.message);
@@ -89,7 +93,7 @@ class MyAuthProvider with ChangeNotifier{
   void authLogOut() async {
     _loading(true);
     try{
-      auth.signOut();
+      await auth.signOut();
       Navigator.pushNamedAndRemoveUntil(navigatorKeys.currentContext!, RouteHelper.loginScreen, (value) => false);
     }on FirebaseAuthException catch(e){
       showMessage(e.message);

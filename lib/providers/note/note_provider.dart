@@ -26,7 +26,7 @@ class NoteProvider with ChangeNotifier {
 
       if (userDoc.exists && userDoc.data() != null) {
         userName = userDoc.data()!['name'] ?? 'No Name';
-        userName = userDoc.data()!['email'] ?? 'No Email';
+        userEmail = userDoc.data()!['email'] ?? 'No Email';
       }
     } catch (e) {
       print("Error fetching name: $e");

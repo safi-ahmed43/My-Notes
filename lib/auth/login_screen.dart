@@ -98,7 +98,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        TextButton(onPressed: (){}, child: Text('Forgot your password!'))
+                        TextButton(onPressed: (){
+                          Navigator.pushNamed(context, RouteHelper.forgetScreen);
+                        }, child: Text('Forgot your password!'))
                       ],
                     ),
                     Spacer(),
